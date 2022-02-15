@@ -34,7 +34,7 @@ public class SameString {
         Collections.sort(listOne);
         Collections.sort(listTwo);
         for (int i = 0; i < listOne.size(); i++) {
-            if (!listOne.get(i).equalsIgnoreCase(listTwo.get(i))) {
+            if (!listOne.get(i).equals(listTwo.get(i))) {
                 System.out.println("путем перестановки символов нельзя из первой строки " + stringOne + " получить вторую " + stringTwo);
                 System.exit(0);
             }
