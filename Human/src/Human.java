@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Human {
 
     String surname;
@@ -45,5 +47,36 @@ public class Human {
             }
         }
         System.out.println();
+    }
+    @Override
+    public String toString() {
+        return "Human{" + "surname=" + surname
+                + ", name=" + name
+                + ", patronymic=" + patronymic
+                + "}";
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Human human = (Human) object;
+        return Objects.equals(surname, human.surname) &&
+                Objects.equals(name, human.name) &&
+                Objects.equals(patronymic, human.patronymic);
+    }
+
+    @Override
+    public int hashCode() {
+        int factor = 31;
+        int result = 1;
+        result = factor * result + ((surname == null) ? 0 : surname.hashCode());
+        result = factor * result + ((name == null) ? 0 : name.hashCode());
+        result = factor * result + ((patronymic == null) ? 0 : patronymic.hashCode());
+        return result;
     }
 }
