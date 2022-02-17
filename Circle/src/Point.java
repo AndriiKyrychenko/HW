@@ -43,9 +43,12 @@ public class Point {
     public int hashCode() {
         int factor = 31;
         int result = 1;
-        result = factor * result + (int) pointX;
-        result = factor * result + (int) pointY;
+        long temp = Double.doubleToLongBits(pointX);
+        result = factor * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(pointY);
+        result = factor * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
+
 
 }

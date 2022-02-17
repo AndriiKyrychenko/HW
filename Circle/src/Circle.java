@@ -23,8 +23,7 @@ public class Circle {
             return false;
         }
         Circle circle = (Circle) object;
-        return Objects.equals(circleCenter, circle.circleCenter) &&
-                Double.compare(circle.radius, radius) == 0;
+        return Objects.equals(circleCenter, circle.circleCenter) && Double.compare(circle.radius, radius) == 0;
     }
 
     @Override
@@ -34,5 +33,13 @@ public class Circle {
                 + ", radius: " + radius + "}";
     }
 
-
+    @Override
+    public int hashCode() {
+        int factor = 31;
+        int result = 1;
+        result = factor * result + circleCenter.hashCode();
+        long temp = Double.doubleToLongBits(radius);
+        result = factor * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }
