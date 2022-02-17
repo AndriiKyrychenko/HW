@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class SameString {
 
@@ -21,25 +22,28 @@ public class SameString {
 
     public static void lenghtComparsion(String stringOne, String stringTwo) {
         if (stringOne.length() == stringTwo.length()) {
-            System.out.println("длины строк совпадают!!! продолжаем проверку ))");
+            System.out.println("длины строк совпадают, продолжаем сравнение ))");
         } else {
-            System.out.println("длины строк не совпадает, дальнейшие проверки бесполезны");
+            System.out.println("длины строк не совпадают, дальнейшее сравнение не нужно");
             System.exit(0);
         }
     }
 
     public static void signComparsion(String stringOne, String stringTwo) {
-        List<String> listOne = new ArrayList<>(Arrays.asList(stringOne.split(",")));
-        List<String> listTwo = new ArrayList<>(Arrays.asList(stringTwo.split(",")));
-        Collections.sort(listOne);
-        Collections.sort(listTwo);
-        for (int i = 0; i < listOne.size(); i++) {
-            if (!listOne.get(i).equals(listTwo.get(i))) {
+
+        String[] listOne = stringOne.split("");
+        String[] listTwo = stringTwo.split("");
+
+        Arrays.sort(listOne);
+        Arrays.sort(listTwo);
+
+        for (int i = 0; i < listOne.length; i++) {
+            if (!listOne[i].equals(listTwo[i])) {
                 System.out.println("путем перестановки символов нельзя из первой строки " + stringOne + " получить вторую " + stringTwo);
                 System.exit(0);
             }
         }
-        System.out.println("путем перестановки символов можно из первой строки " + stringOne + " получить вторую " + stringTwo);
+        System.out.println("путем перестановки символов первой строки " + stringOne + " можно получить вторую строку" + stringTwo);
     }
 }
 

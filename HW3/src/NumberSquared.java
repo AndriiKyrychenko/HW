@@ -18,7 +18,7 @@ public class NumberSquared {
 
     public static void fillArray(int[] numberArray, Random random, int min, int max) {
         for (int i = 0; i < numberArray.length; i++) {
-            numberArray[i] = -10 + random.nextInt(max - min + 1);
+            numberArray[i] = min + random.nextInt(max - min + 1);
         }
         System.out.println(Arrays.toString(numberArray));
     }
@@ -27,6 +27,7 @@ public class NumberSquared {
         for (int i = 0; i < squaredNumberArray.length; i++) {
             squaredNumberArray[i] = numberArray[i] * numberArray[i];
         }
+        Arrays.sort(squaredNumberArray);
         System.out.println(Arrays.toString(squaredNumberArray));
     }
 }

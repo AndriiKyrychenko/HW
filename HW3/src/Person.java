@@ -13,6 +13,16 @@ public class Person {
 
     public Person(String fullName) {
         this.fullName = fullName;
+        String[] arrName = fullName.split(" ", 3);
+        surname = arrName[0];
+        name = arrName[1];
+        patronymic = arrName[2];
+        System.out.println("разбиение fullName " + fullName + " и присвоение значений в surname, name, patronymic: ");
+        System.out.println();
+        System.out.println("surname: " + surname);
+        System.out.println("name: " + name);
+        System.out.println("patronymic: " + patronymic);
+
     }
 
     public static void main(String[] args) {
@@ -20,21 +30,9 @@ public class Person {
         Person personOne = new Person("Колокольчиков", "Николай", "Апполинариевич");
         Person personTwo = new Person("Петров-Зябликов Хуан Эмманулович");
 
-        System.out.println(personOne.surname + " " + personOne.name + " " + personOne.patronymic);
-        System.out.println(personTwo.fullName);
-
-        Person.parseName(personTwo);
-    }
-
-    public static void parseName(Person person) {
-        String[] arrName = person.fullName.split(" ", 3);
-        person.surname= arrName[0];
-        person.name=arrName[1];
-        person.patronymic=arrName[2];
         System.out.println();
-        System.out.println("разбиение строки fullName и присвоение значений в surname, name, patronymic: ");
-        System.out.println("surname: " + person.surname);
-        System.out.println("name: " + person.name);
-        System.out.println("patronymic: " + person.patronymic);
+        System.out.println("полное имя заданное конструктором с полями  surname, name, patronymic " + personOne.surname + " " + personOne.name + " " + personOne.patronymic);
+        System.out.println("полное имя заданное конструктором с полем fullName: " + personTwo.fullName);
+
     }
 }
